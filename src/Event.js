@@ -2,46 +2,38 @@ import React, { Component } from "react";
 
 class Event extends Component {
     state = {
-        buttonOpen: false,
-        buttonText: "show details",
-        aboutEvent: "",
-        googleCalendarLink: "",
-        eventDescription: "",
+        showDetails: false
     };
 
     buttonToggle = () => {
-        if (!this.state.buttonOpen) {
-            this.setState({ buttonOpen: true });
-            this.setState({ buttonText: "hide details" });
-            this.setState({ aboutEvent: "About event" });
-            this.setState({ googleCalendarLink: "See details on Google Calendar" });
-            this.setState({ eventDescription: "Event Description" });
-        } else {
-            this.setState({ buttonOpen: false });
-            this.setState({ buttonText: "show details" });
-            this.setState({ aboutEvent: "" });
-            this.setState({ googleCalendarLink: "" });
-            this.setState({ eventDescription: "" });
-        }
+        this.setState({ showDetails: !this.state.showDetails });
     };
 
     render() {
+
+        const { event } = this.props;
+        const { showDetails } = this.state;
+
         return (
             <div className="event-box">
-                <div className="title">Title</div>
-                <div className="date">Date</div>
-                <div className="location">Location</div>
-                <div className="about-event">{this.state.aboutEvent}</div>
-                <div className="google-calendar-link">
-                    {this.state.googleCalendarLink}
-                </div>
-                <div className="event-description">{this.state.eventDescription}</div>
+                <div className="title">{event.summary}</div>
+                <div className="date">{event.start.dateTime} ({event.start.timeZone})</div>
+                <div className="location">@{event.summary} | {event.location}</div>
                 <button
                     className="show-details-button"
-                    onClick={() => this.buttonToggle()}
+                    onClick={() => this.buttonToggle}
                 >
-                    {this.state.buttonText}
+                    {showDetails ? 'hide details' : 'show details'}
                 </button>
+                {showDetails ? (
+                    <>
+                        <div className="about-event">About event:</div>
+                        <div className="google-calendar-link">
+                            <a href={event.htmlLink}>See details on Google Calendar</a>
+                        </div>
+                        <div className="event-description">{event.description}</div>
+                    </>
+                ) : null}
             </div>
         );
     }
