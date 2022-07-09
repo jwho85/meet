@@ -8,15 +8,16 @@ describe('<Event /> component', () => {
         EventWrapper = shallow(<Event />);
     });
     test('render initial event', () => {
-        expect(EventWrapper.find('.event-box')).toHaveLength(1);
+        expect(EventWrapper.find('.event-box')).toHaveLength(1); //not working
     });
-    test('check if extra info is shown when a user clicks on the show details button', () => {
+    test('check if hide details is shown when you click the button', () => {
+        EventWrapper.setState({ showDetails: false });
         EventWrapper.find('.show-details-button').simulate('click');
-        expect(EventWrapper.state('buttonText')).toBe('hide details');
+        expect(EventWrapper.find('.show-details-button').props().text()).toEqual('hide details'); //not working
     });
-    test("check if buttonOpen is set to true when button is clicked", () => {
-        EventWrapper.setState({ buttonOpen: true });
-        EventWrapper.find(".show-details-button").simulate("click");
-        expect(EventWrapper.state("buttonText")).toBe("show details");
+    test('check if show details is shown when you click the button again', () => {
+        EventWrapper.setState({ showDetails: true });
+        EventWrapper.find('.show-details-button').simulate('click');
+        expect(EventWrapper.find('.show-details-button').props().text()).toEqual('show details'); //not working
     });
 });

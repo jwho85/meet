@@ -65,4 +65,21 @@ describe('<App /> integration', () => {
         expect(AppWrapper.state('events')).toEqual(allEvents);
         AppWrapper.unmount();
     });
+    test('load a list of 32 events by default', async () => {
+        const AppWrapper = mount(<App />);
+        const allEvents = await getEvents();
+        const numberOfEvents = AppWrapper.state('numberOfEvents');
+        expect(AppWrapper.state('numberOfEvents')).not.toEqual(undefined);
+        expect(AppWrapper.state('events')).toEqual(allEvents.slice(0, numberOfEvents));
+        AppWrapper.unmount();
+    });
+    test('make sure the numberOfEvents state in NumberOfEvents matches the events state in App after changed', async () => {
+        const AppWrapper = mount(<App />);
+        const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
+        NumberOfEventsWrapper.find('.number-input').simulate('change', { target: { value: 10 } });
+        const allEvents = await getEvents();
+        expect(AppWrapper.state('events')).not.toEqual(undefined);
+        expect(AppWrapper.state('events')).toEqual(allEvents.slice(0, 10));
+        AppWrapper.unmount();
+    });
 });
