@@ -246,3 +246,11 @@ input[type="number"] {
 body {
   background: #efefef !important;
 }
+
+.EventList {
+  padding-left: 0px;
+}
+
+.card:hover {
+  transform: scale(1.02) !important;
+}
