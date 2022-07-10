@@ -222,6 +222,8 @@ input[type="number"] {
 
 /* custom css */
 
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 .text-right {
   text-align: right;
 }
@@ -240,7 +242,8 @@ input[type="number"] {
 }
 
 .main-header {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  font-family: 'Pacifico', cursive;
 }
 
 body {
