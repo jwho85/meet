@@ -44,11 +44,13 @@ class Event extends Component {
                                 </div>
                                 {showDetails ? (
                                     <>
-                                        <h5><div className="about-event">About event:</div></h5>
-                                        <div className="google-calendar-link">
-                                            <a href={event.htmlLink}>See details on Google Calendar</a>
+                                        <div className="event-details">
+                                            <h5><div className="about-event">About event:</div></h5>
+                                            <div className="google-calendar-link">
+                                                <a href={event.htmlLink}>See details on Google Calendar</a>
+                                            </div>
+                                            <Card.Text><div className="event-description">{event.description}</div></Card.Text>
                                         </div>
-                                        <Card.Text><div className="event-description">{event.description}</div></Card.Text>
                                     </>
                                 ) : null}
                             </div>

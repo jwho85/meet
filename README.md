@@ -34,21 +34,21 @@ information about an event.
 
 SCENARIO 1: AN EVENT ELEMENT IS COLLAPSED BY DEFAULT
 
-Given the user has not clicked an event<br />
-When the user looks at the event<br />
-Then the even should be collapsed by default
+Given the app is open<br />
+When an event is displayed<br />
+Then the event details should be collapsed by default
 
-SCENARIO 2: USER CAN EXPAND AN EVENT TO SEE IT’S DETAILS
+SCENARIO 2: USER CAN EXPAND AN EVENT TO SEE ITS DETAILS
 
-Give the user has clicked on an event<br />
-When the user clicks on the event<br />
-Then the user can see the event’s details
+Given the app is open<br />
+When the user clicks on the event button<br />
+Then the event details will be displayed
 
 SCENARIO 3: USER CAN COLLAPSE AN EVENT TO HIDE ITS DETAILS
 
 Given the user has already opened an event<br />
 When the user clicks on the event<br />
-Then the even collapses to hide its details
+Then the event collapses to hide its details
 
 FEATURE 3: SPECIFY NUMBER OF EVENTS
 
@@ -57,13 +57,13 @@ that I can see more or fewer events in the events list at once.
 
 SCENARIO 1: WHEN THE USER HASN’T SPECIFIED A NUMBER, 32 IS THE DEFAULT NUMBER
 
-Given the user hasn’t specified a number<br />
-When the user looks at the number count<br />
+Given the app is open<br />
+When the user hasn't specified a number<br />
 Then the number count should be 32
 
 SCENARIO 2: USER CAN CHANGE THE NUMBER OF EVENTS THEY WANT TO SEE
 
-Given the user is looking at the event count<br />
+Given the app is open<br />
 When the user changes the event count<br />
 Then the number of events should change based on user input
 
