@@ -61,6 +61,7 @@ input[type="number"] {
   font-size: 14px;
   box-shadow: 10px 10px 16px -12px rgba(0, 0, 0, 0.75);
   margin-top: -20px;
+  padding-left: 0px;
 }
 
 .suggestions>li {
