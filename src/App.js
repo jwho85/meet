@@ -89,13 +89,14 @@ class App extends Component {
     if (this.state.showWelcomeScreen === undefined) {
       return <div className="App" />
     }
+
     return (
       <div className="App">
         <OfflineAlert text={this.state.offlineAlert} />
         <h1 className="main-header">Meet App</h1>
         <strong>Choose your nearest city</strong>
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
-        <strong>Number of Events:</strong>
+        <strong>Number of events</strong>
         <NumberOfEvents updateEvents={this.updateEvents} />
         <strong>Events in each city</strong>
         <ResponsiveContainer height={400} >

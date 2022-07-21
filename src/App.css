@@ -271,3 +271,7 @@ body {
 .CitySearch {
   max-width: 100%;
 }
+
+.NumberOfEvents {
+  padding-top: 15px;
+}
