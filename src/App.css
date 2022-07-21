@@ -254,6 +254,7 @@ body {
 
 .EventList {
   padding-left: 0px;
+  margin-top: 20px;
 }
 
 .card:hover {
